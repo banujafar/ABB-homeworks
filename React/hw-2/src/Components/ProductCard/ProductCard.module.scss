@@ -1,0 +1,17 @@
+.product-card {
+  padding: 10px;
+  img {
+    width: 200px;
+    height: auto;
+  }
+  h3 {
+    width: 280px;
+  }
+
+  .product-info {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+  }
+}

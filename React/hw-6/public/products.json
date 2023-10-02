@@ -1,0 +1,72 @@
+[
+  {
+    "name": "Samsung Galaxy S23 Ultra (SM-S918B) 12/512 GB Lilac",
+    "price": 699.99,
+    "imagePath": "https://kontakt.az/wp-content/uploads/2020/02/New-Project-2_png.webp",
+    "sku": "PHN-001",
+    "color": "Green"
+  },
+  {
+    "name": "Samsung Galaxy S23 (SM-S911B) 8/256 GB Black",
+    "price": 399.95,
+    "imagePath": "https://mobilepriceall.com/wp-content/uploads/2022/05/Samsung-Galaxy-S22-Plus-5G.jpg",
+    "sku": "PHN-002",
+    "color": "Black"
+  },
+  {
+    "name": "HUAWEI P60 Pro 8/256 GB Rococo Pearl",
+    "price": 849.50,
+    "imagePath": "https://img.gigatron.rs/img/products/large/image646740bc687bd.jpg",
+    "sku": "PHN-003",
+    "color": "Pearl"
+  },
+  {
+    "name": "Realme C35 4/128 GB Glowing Green",
+    "price": 249.99,
+    "imagePath": "https://sgfm.elcorteingles.es/SGFM/dctm/MEDIA03/202203/29/00157063425698009_4__640x640.jpg",
+    "sku": "PHN-004",
+    "color": "Green"
+  },
+  {
+    "name": "Xiaomi Redmi Note 12 8/128 GB w/o NFC Mint Green",
+    "price": 599.99,
+    "imagePath": "https://d1eh9yux7w8iql.cloudfront.net/product_images/310406_d885e282-3f34-42b0-ab27-7e219477939c.jpg",
+    "sku": "PHN-005",
+    "color": "Mint Green"
+  },
+  {
+      "name": "HUAWEI Nova Y70 4/128 GB Midnight Black",
+      "price": 499.99,
+      "imagePath": "https://www.pgs.sk/images/data/product/447/huawei-nova-y70-4-128gb-midnight-black-51096ysr-447143.jpg",
+      "sku": "PHN-006",
+      "color": "Black"
+    },
+    {
+      "name": "İnfinix Note 30 Pro 8/256 GB NFC Black",
+      "price": 679.95,
+      "imagePath": "https://www.mobilesjin.com/wp-content/uploads/2020/09/Infinix-Zero-8-price-in-pakistan.jpg",
+      "sku": "PHN-007",
+      "color": "Black"
+    },
+    {
+      "name": "Infinix Hot 30i 4/128 GB Blue",
+      "price": 849.50,
+      "imagePath": "https://www.mp.cz/media/photos/2023/06/06/148677-07.jpg",
+      "sku": "PHN-008",
+      "color": "Blue"
+    },
+    {
+      "name": "Samsung Galaxy A24 (SM-A245) 6/128 GB Silver",
+      "price": 519.99,
+      "imagePath": "https://mobilestore.ec/wp-content/uploads/2023/05/Samsung-Galaxy-A24-Plata-Mobile-Store-Ecuador.jpg",
+      "sku": "PHN-009",
+      "color": "Silver"
+    },
+    {
+      "name": "HUAWEI Nova Y61 6/64 GB Midnight Black",
+      "price": 379.99,
+      "imagePath": "https://cdncloudcart.com/402/products/images/131840/smartfon-huawei-nova-y61-midnight-black--4-gb-64-gb-63734dd929e6b_original.png?1668500953",
+      "sku": "PHN-0010",
+      "color": "Black"
+    }
+]

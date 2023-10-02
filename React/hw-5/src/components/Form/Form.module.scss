@@ -1,0 +1,59 @@
+.form {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+
+  .errors {
+    color: #fc8181;
+    font-size: 0.75rem;
+    text-align: left;
+    margin-top: 0.25rem;
+  }
+
+  input {
+    width: 100%;
+    padding: 0.65rem 0.5rem;
+    font-size: 1rem;
+    color: #1a202c;
+    border: 2px solid #4a5568;
+    border-radius: 10px;
+    outline: none;
+    &:focus {
+      border-color: #4299e1;
+    }
+    &::placeholder {
+      color: #a0aec0;
+    }
+  }
+
+  //   input[type="checkbox"] {
+
+  //   }
+
+  button {
+    display: block;
+    margin: 1rem 0;
+    padding: 0.35rem 0.5rem;
+    color: #1a202c;
+    border: none;
+    border-radius: 3px;
+    width: 100%;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+
+    &:disabled {
+      opacity: 0.35;
+    }
+  }
+  label {
+    font-size: 1rem;
+    font-weight: bold;
+    display: block;
+    text-align: left;
+    margin: 1rem 0 0.2rem;
+  }
+  input.input-error {
+    border-color: #fc8181;
+  }
+}

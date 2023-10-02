@@ -1,0 +1,186 @@
+.main {
+  @include flex($direction: column, $justifyContent: center, $alignItems: null);
+
+  &__header {
+    @include flex(
+      $direction: row,
+      $justifyContent: center,
+      $alignItems: center
+    );
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  &__img {
+    width: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    object-fit: contain;
+    // margin-top: 23px;
+    margin-bottom: 38px;
+  }
+
+  .posts {
+    @include flex(
+      $direction: column,
+      $justifyContent: center,
+      $alignItems: null
+    );
+    // width: 90%;
+    // margin: 0 auto;
+    &__title {
+      color: $title-color;
+      font-size: 14px;
+      font-weight: 700;
+      margin-bottom: 23px;
+      line-height: 22px;
+    }
+
+    &__content {
+      @include flex(
+        $direction: column,
+        $justifyContent: center,
+        $alignItems: flex-start
+      );
+      width: 100%;
+    }
+
+    &__column {
+      .post {
+        @include flex(
+          $direction: column,
+          $justifyContent: center,
+          $alignItems: flex-start
+        );
+
+        &--mt {
+          margin-top: 28.5px;
+        }
+
+        &--disabled {
+          display: none;
+        }
+
+        &__image {
+          margin-bottom: 11px;
+        }
+
+        &__title {
+          font-size: 14px;
+          font-weight: 700;
+          line-height: 30px;
+          color: $title-color;
+        }
+
+        &__text {
+          color: $post-text-color;
+          font-size: 11px;
+          line-height: 16px;
+        }
+
+        &__info--disabled {
+          display: none;
+          color: $post-info-color;
+          margin-top: 10px;
+          font-size: 14px;
+          line-height: 26px;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 575px) {
+  .main {
+    &__img {
+      margin-top: 0;
+      margin-bottom: 56px;
+    }
+
+    .posts {
+      &__title {
+        font-size: 16px;
+        margin-bottom: 24px;
+      }
+
+      &__column {
+        .post {
+          @include flex(
+            $direction: row,
+            $justifyContent: flex-start,
+            $alignItems: flex-start
+          );
+
+          &:not(:first-child) {
+            margin-top: 32px;
+          }
+
+          &__image {
+            margin-bottom: 0;
+          }
+
+          &__text {
+            font-size: 12px;
+            line-height: 20px;
+          }
+
+          &--disabled {
+            @include flex(
+              $direction: row,
+              $justifyContent: flex-start,
+              $alignItems: flex-start
+            );
+          }
+
+          &__content {
+            margin-left: 21px;
+          }
+
+          &__info--disabled {
+            display: block;
+            max-width: 404px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: $breakpoint-lg) {
+  .main {
+    &__img {
+      margin-bottom: 66px;
+      margin-top: 0;
+    }
+
+    .posts {
+      &__content {
+        @include flex(
+          $direction: row,
+          $justifyContent: center,
+          $alignItems: null
+        );
+        gap: 55px;
+      }
+
+      &__column {
+        @include flex(
+          $direction: column,
+          $justifyContent: center,
+          $alignItems: flex-start
+        );
+
+        .post {
+          flex-basis: 49%;
+          &--mt {
+            margin-top: 0;
+          }
+          &__info--disabled {
+            margin-top: 7px;
+          }
+        }
+      }
+    }
+  }
+}

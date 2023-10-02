@@ -1,0 +1,44 @@
+@import "./abstracts/colors";
+@import "./abstracts/mixins";
+@import "./abstracts/variables";
+@import "./layout/navbar";
+@import "./layout/main";
+@import "./layout/section";
+@import "./layout/footer";
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Roboto";
+  text-decoration: none;
+  list-style: none;
+}
+
+body {
+  background-color: $white;
+}
+
+.container {
+  padding: 0 25px;
+  margin: 0 auto;
+}
+
+@media screen and (min-width:320px) and (max-width: 575px) {
+  .container {
+    max-width: 320px;
+  }
+}
+
+@media screen and (min-width: 576px) and (max-width: 992px) {
+  .container {
+    max-width: 768px;
+  }
+}
+
+@media screen and (min-width: 993px) {
+  .container {
+    max-width: 1170px;
+  }
+}

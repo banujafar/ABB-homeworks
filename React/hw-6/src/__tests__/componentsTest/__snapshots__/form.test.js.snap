@@ -1,0 +1,80 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should  matches DOM snapshot correctly 1`] = `
+<div>
+  <form
+    class="form"
+  >
+    <label
+      for="firstName"
+    >
+      First Name
+    </label>
+    <input
+      class=""
+      id="firstName"
+      name="firstName"
+      placeholder="Enter your first name"
+      type="text"
+      value=""
+    />
+    <label
+      for="lastName"
+    >
+      Last Name
+    </label>
+    <input
+      class=""
+      id="lastName"
+      name="lastName"
+      placeholder="Enter your last name"
+      type="text"
+      value=""
+    />
+    <label
+      for="age"
+    >
+      Age
+    </label>
+    <input
+      class=""
+      id="age"
+      name="age"
+      placeholder="Enter your age"
+      type="number"
+      value=""
+    />
+    <label
+      for="address"
+    >
+      Delivery Address
+    </label>
+    <input
+      class=""
+      id="address"
+      name="address"
+      placeholder="Enter your delivery address"
+      type="text"
+      value=""
+    />
+    <label
+      for="phone"
+    >
+      Phone
+    </label>
+    <input
+      class=""
+      id="phone"
+      name="phone"
+      placeholder="Enter your phone number"
+      type="text"
+      value=""
+    />
+    <button
+      type="submit"
+    >
+      Checkout
+    </button>
+  </form>
+</div>
+`;

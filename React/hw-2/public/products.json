@@ -1,0 +1,73 @@
+[
+    {
+      "name": "Samsung Galaxy S23 Ultra (SM-S918B) 12/512 GB Lilac",
+      "price": 699.99,
+      "imagePath": "https://kontakt.az/wp-content/uploads/2020/02/New-Project-2_png.webp",
+      "sku": "PHN-001",
+      "color": "Green"
+    },
+    {
+      "name": "Samsung Galaxy S23 (SM-S911B) 8/256 GB Black",
+      "price": 399.95,
+      "imagePath": "https://kontakt.az/wp-content/uploads/2023/02/New-Project-2023-02-03T101032.926_png.webp",
+      "sku": "PHN-002",
+      "color": "Black"
+    },
+    {
+      "name": "HUAWEI P60 Pro 8/256 GB Rococo Pearl",
+      "price": 849.50,
+      "imagePath": "https://kontakt.az/wp-content/uploads/2023/06/New-Project-2023-06-24T165340.428-1_png.webp",
+      "sku": "PHN-003",
+      "color": "Pearl"
+    },
+    {
+      "name": "Realme C35 4/128 GB Glowing Green",
+      "price": 249.99,
+      "imagePath": "https://kontakt.az/wp-content/uploads/2023/06/%D0%9D%D0%BE%D0%B2%D1%8B%D0%B9-%D0%BF%D1%80%D0%BE%D0%B5%D0%BA%D1%82-2023-07-03T101526.063_png.webp",
+      "sku": "PHN-004",
+      "color": "Green"
+    },
+    {
+      "name": "Xiaomi Redmi Note 12 8/128 GB w/o NFC Mint Green",
+      "price": 599.99,
+      "imagePath": "https://kontakt.az/wp-content/uploads/2023/06/New-Project-2023-06-14T125546.551.jpg",
+      "sku": "PHN-005",
+      "color": "Mint Green"
+    },
+    {
+        "name": "Samsung Galaxy S23 Ultra (SM-S918B) 12/512 GB Lilac",
+        "price": 699.99,
+        "imagePath": "https://kontakt.az/wp-content/uploads/2020/02/New-Project-2_png.webp",
+        "sku": "PHN-001",
+        "color": "Green"
+      },
+      {
+        "name": "Samsung Galaxy S23 (SM-S911B) 8/256 GB Black",
+        "price": 399.95,
+        "imagePath": "https://kontakt.az/wp-content/uploads/2023/02/New-Project-2023-02-03T101032.926_png.webp",
+        "sku": "PHN-002",
+        "color": "Black"
+      },
+      {
+        "name": "HUAWEI P60 Pro 8/256 GB Rococo Pearl",
+        "price": 849.50,
+        "imagePath": "https://kontakt.az/wp-content/uploads/2023/06/New-Project-2023-06-24T165340.428-1_png.webp",
+        "sku": "PHN-003",
+        "color": "Pearl"
+      },
+      {
+        "name": "Realme C35 4/128 GB Glowing Green",
+        "price": 249.99,
+        "imagePath": "https://kontakt.az/wp-content/uploads/2023/06/%D0%9D%D0%BE%D0%B2%D1%8B%D0%B9-%D0%BF%D1%80%D0%BE%D0%B5%D0%BA%D1%82-2023-07-03T101526.063_png.webp",
+        "sku": "PHN-004",
+        "color": "Green"
+      },
+      {
+        "name": "Xiaomi Redmi Note 12 8/128 GB w/o NFC Mint Green",
+        "price": 599.99,
+        "imagePath": "https://kontakt.az/wp-content/uploads/2023/06/New-Project-2023-06-14T125546.551.jpg",
+        "sku": "PHN-005",
+        "color": "Mint Green"
+      }
+  ]
+  
