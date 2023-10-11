@@ -19,35 +19,38 @@ export class Transaction {
 
 export class Card {
   transactions: Transaction[];
+
   constructor() {
     this.transactions = [];
   }
 
-  AddTransaction(Transaction: Transaction) {
-    this.transactions.push(Transaction);
-    return Transaction.ID;
-  }
-
-  AddTransactionOverLoad(Currency: CurrencyEnum, Amount: number) {
-    const transaction = new Transaction(Amount, Currency);
-    this.transactions.push(transaction);
-    return transaction.ID;
+  AddTransaction(transaction: Transaction | CurrencyEnum, Amount?: number) {
+    if (transaction instanceof Transaction && !Amount) {
+      this.transactions.push(transaction);
+      return transaction.ID;
+    } else if (typeof transaction === "number" && Amount) {
+      const newTransaction = new Transaction(Amount, transaction);
+      this.transactions.push(newTransaction);
+      return newTransaction.ID;
+    } else {
+      throw new Error(
+        "Invalid transaction data. Please provide a valid Transaction and Amount."
+      );
+    }
   }
 
   GetTransaction(ID: string) {
-    const transaction = this.transactions.find(
-      (transaction) => transaction.ID === ID
-    );
-    return transaction;
+    return this.transactions.find((transaction) => transaction.ID === ID);
   }
 
   GetBalance(Currency: CurrencyEnum) {
-    let totalAmount = 0;
-    this.transactions.map((transation) => {
-      if (transation.Currency === Currency) {
-        totalAmount += transation.Amount;
-      }
-    });
-    return totalAmount;
+    const filteredTransactions = this.transactions.filter(
+      (transaction) => transaction.Currency === Currency
+    );
+    const balance = filteredTransactions.reduce(
+      (prev, curr) => prev + curr.Amount,
+      0
+    );
+    return balance;
   }
 }

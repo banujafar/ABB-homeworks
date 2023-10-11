@@ -8,14 +8,15 @@ const thirdTransaction = new Transaction(900, CurrencyEnum.USD);
 const forthTransaction = new Transaction(1200, CurrencyEnum.UAH);
 
 const firstTrID = test.AddTransaction(firstTransaction);
+console.log(firstTrID);
 test.AddTransaction(secondTransaction);
 test.AddTransaction(thirdTransaction);
 test.AddTransaction(forthTransaction);
 
-console.log(test.GetTransaction(firstTrID));
+console.log(test.GetTransaction(firstTrID))
 
-test.AddTransactionOverLoad(CurrencyEnum.UAH, 3000);
-test.AddTransactionOverLoad(CurrencyEnum.UAH, 6000);
+test.AddTransaction(CurrencyEnum.UAH, 3000);
+test.AddTransaction(CurrencyEnum.UAH, 6000);
 
 console.log(test.GetBalance(CurrencyEnum.USD));
 console.log(test.GetBalance(CurrencyEnum.UAH));
