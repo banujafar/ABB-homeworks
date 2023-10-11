@@ -1,5 +1,5 @@
 import { Request, Response, Router } from "express";
-import { readFile, writeFile } from "fs/promises";
+import { getNewsFromDB, writeNewsToDB } from "./newsDbOperations.ts";
 import { v4 as uuidv4 } from "uuid";
 
 interface INews {
@@ -10,44 +10,20 @@ interface INews {
 
 const router = Router();
 
-const getNewsFromDB = async () => {
-  try {
-    const data = await readFile("./db/news.json", "utf-8");
-    return JSON.parse(data);
-  } catch (err) {
-    console.log("error", err);
-  }
-};
-
-const writeNewsToDB = async (news: INews[]) => {
-  try {
-    await writeFile("./db/news.json", JSON.stringify(news));
-  } catch (err) {
-    console.error("Error writing news data", err);
-  }
-};
-
 router.get("/", async (req: Request, res: Response) => {
   try {
-    let news = await getNewsFromDB();
+    const news = await getNewsFromDB();
     const { query } = req;
-    if (query && query.size && query.page) {
-      const size: number = +query.size;
-      const page: number = +query.page;
-      const startIndex: number = (page - 1) * size;
-      const endIndex = size * page;
-      const paginatedNews = news.slice(startIndex, endIndex);
-      if (paginatedNews) {
-        res.status(200).json(paginatedNews);
-      } else {
-        res.status(200).json([]);
-      }
-    }
+    const size = query.size ? +query.size : 10;
+    const page = query.page ? +query.page : 1;
+    const startIndex = (page - 1) * size;
+    const endIndex = size * page;
+    const paginatedNews = news.slice(startIndex, endIndex);
+    res.status(200).json(paginatedNews);
   } catch (error) {
     res.status(500).json("Internal Server Error");
   }
 });
-
 router.get("/:id", async (req: Request, res: Response) => {
   try {
     const news = await getNewsFromDB();
