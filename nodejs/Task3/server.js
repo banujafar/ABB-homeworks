@@ -1,7 +1,7 @@
 import http from "http";
 import dotenv from "dotenv";
 import { readFile } from "fs/promises";
-import querystring from "querystring";
+import url from "url";
 dotenv.config();
 
 const readFileFromDB = async () => {
@@ -18,11 +18,9 @@ const app = http.createServer(async (req, res) => {
   const news = await readFileFromDB();
 
   if (req.url !== "/favicon.ico" && req.method === "GET") {
-    const arrayofURL = req.url.split("/");
-    const query = querystring.parse(arrayofURL[arrayofURL.length - 1].slice(1));
-    const page = query.page || 1;
-    const size = query.size || 10;
-
+    const parsedUrl = url.parse(req.url, true);
+    const page = parsedUrl.query.page || 1;
+    const size = parsedUrl.query.size || 10;
     const startIndex = (page - 1) * size;
     const endIndex = page * size;
     const paginatedNews = news.slice(startIndex, endIndex);
