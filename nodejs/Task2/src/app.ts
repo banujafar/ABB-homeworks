@@ -44,13 +44,12 @@ export class Card {
   }
 
   GetBalance(Currency: CurrencyEnum) {
-    const filteredTransactions = this.transactions.filter(
-      (transaction) => transaction.Currency === Currency
-    );
-    const balance = filteredTransactions.reduce(
-      (prev, curr) => prev + curr.Amount,
-      0
-    );
+    const balance = this.transactions.reduce((prev, curr) => {
+      if (Currency === curr.Currency) {
+        return prev + curr.Amount;
+      }
+      return prev;
+    }, 0);
     return balance;
   }
 }
