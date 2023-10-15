@@ -1,6 +1,6 @@
 import express from "express";
 import "dotenv/config";
-import router from "./app.router.ts";
+import router from "./routes/app.route.ts";
 import loggingMiddleware from "./loggingMiddleware.ts";
 
 const app = express();
