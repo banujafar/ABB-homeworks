@@ -8,7 +8,29 @@ import { initialize } from "../passportConfig.ts";
 
 const authorRouter = Router();
 initialize(passport);
-
+ /**
+   * @openapi
+   * /auth/register:
+   *  post:
+   *     tags:
+   *     - User
+   *     summary: Register a user
+   *     requestBody:
+   *      required: true
+   *      content:
+   *        application/json:
+   *           schema:
+   *              $ref: '#/components/schemas/CreateUserInput'
+   *     responses:
+   *      200:
+   *        description: Success
+   *        content:
+   *          application/json:
+   *            schema:
+   *              $ref: '#/components/schemas/CreateUserResponse'
+   *      400:
+   *        description: Bad request
+   */
 authorRouter.post(
   "/register",
   passport.authenticate("signup", { session: false }),
@@ -70,7 +92,29 @@ authorRouter.post(
     }
   }
 );
-
+ /**
+   * @openapi
+   * /auth/login:
+   *  post:
+   *     tags:
+   *     - User
+   *     summary: Login a user
+   *     requestBody:
+   *      required: true
+   *      content:
+   *        application/json:
+   *           schema:
+   *              $ref: '#/components/schemas/LoginUserInput'
+   *     responses:
+   *      200:
+   *        description: Success
+   *        content:
+   *          application/json:
+   *            schema:
+   *              $ref: '#/components/schemas/CreateUserResponse'
+   *      401:
+   *        description: Bad request
+   */
 authorRouter.post(
   "/login",
   (req: Request, res: Response, next: NextFunction) => {
