@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <title>News</title>
+</head>
+
+<body>
+    <h1>News</h1>
+    <form>
+        <div class="mb-3">
+            <label for="titleInput" class="form-label">Title</label>
+            <input type="text" class="form-control" id="titleInput" placeholder="Enter title">
+        </div>
+        <div class="mb-3">
+            <label for="textInput" class="form-label">Text</label>
+            <textarea class="form-control" id="textInput" rows="3"></textarea>
+        </div>
+        <button type="button" class="btn btn-primary" id="create-btn">Create</button>
+    </form>
+    <ul id="news-list"></ul>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+        const socket = io();
+        const newsList = document.getElementById('news-list');
+        const createBtn = document.getElementById('create-btn');
+        let editedId = ''
+        // Function to add news items to the list
+        function addNewsItem({ id, title, text }) {
+            const listItem = document.createElement('li');
+            listItem.setAttribute('data-id', id);
+            listItem.innerHTML = `
+        <div class="mr-2 mb-2">
+        Title: <span class="title">${title}</span> - Text: <span class="text">${text}</span>
+        <button class="btn btn-danger delete-btn">Delete</button>
+        <button class="btn btn-secondary edit-btn">Edit</button>
+        </div>
+        `;
+            newsList.appendChild(listItem);
+        }
+
+        // Function to update a news item
+        function updateNewsItem({ editedId, title, text }) {
+            const listItem = document.querySelector(`li[data-id="${editedId}"]`);
+            if (listItem) {
+                listItem.querySelector('.title').textContent = title;
+                listItem.querySelector('.text').textContent = text;
+            }
+        }
+
+        // Event listener for the "Create" or "Update" button
+        createBtn.addEventListener('click', () => {
+            const titleInput = document.getElementById('titleInput');
+            const textInput = document.getElementById('textInput');
+            const title = titleInput.value;
+            const text = textInput.value;
+            if (createBtn.textContent === "Create") {
+                socket.emit('send news', { title, text });
+            } else if (createBtn.textContent === "Update") {
+                socket.emit("send edited id", { editedId, title, text });
+                updateNewsItem({ editedId, title, text });
+            }
+            titleInput.value = '';
+            textInput.value = '';
+        });
+
+        // Event listener for delete and edit buttons
+        newsList.addEventListener('click', (e) => {
+            if (e.target.classList.contains('delete-btn')) {
+                const id = e.target.parentElement.parentElement.getAttribute('data-id');
+                socket.emit('send deleted id', id);
+            } else if (e.target.classList.contains('edit-btn')) {
+                const titleInput = document.getElementById('titleInput');
+                const textInput = document.getElementById('textInput');
+                const listItem = e.target.parentElement.parentElement;
+                titleInput.value = listItem.querySelector('.title').textContent;
+                textInput.value = listItem.querySelector('.text').textContent;
+                editedId = listItem.getAttribute('data-id');
+                createBtn.textContent = 'Update';
+            }
+        });
+
+        // Socket event listeners
+        socket.on("add news", ({ id, title, text }) => {
+            addNewsItem({ id, title, text });
+        });
+
+        socket.on('delete from client', (id) => {
+            const listItem = document.querySelector(`li[data-id="${id}"]`);
+            if (listItem) {
+                newsList.removeChild(listItem);
+            }
+        });
+
+        socket.on("edit from client", ({ editedId, title, text }) => {
+            updateNewsItem({ editedId, title, text });
+        });
+
+        // Initial loading of news items
+        fetch('/newsposts', {
+            headers: {
+                'Authorization': `Bearer ${localStorage.getItem('token').split(' ')[1]}`
+            }
+        })
+            .then((response) => response.json())
+            .then((data) => {
+                data.forEach(({ id, title, text }) => {
+                    console.log(title)
+                    addNewsItem({ id, title, text });
+                });
+            });
+    </script>
+</body>
+
+</html>
